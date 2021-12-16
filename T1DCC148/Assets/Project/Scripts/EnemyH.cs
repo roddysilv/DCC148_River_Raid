@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class EnemyH : MonoBehaviour
 {	
 	public GameObject bulletPrefab;
 	public float speed;
@@ -23,11 +23,6 @@ public class Enemy : MonoBehaviour
 		//spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
     	GetComponent<Rigidbody2D>().velocity = new Vector2 (0, speed);
     }
-
-	/*void ChangeSprite()
-	{
-		spriteRenderer.sprite = newSprite;
-	}*/
 
     // Update is called once per frame
     void Update()
@@ -59,7 +54,5 @@ public class Enemy : MonoBehaviour
  				OnKill();
  			}
 }
-
-
 
 }

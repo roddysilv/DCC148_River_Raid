@@ -9,6 +9,7 @@ public class GameController : MonoBehaviour
 {	
 	public Player player;
 	public GameObject enemyPrefab;
+	public GameObject enemyHPrefab;
 	public float enemySpawnInterval = 1f;
 	public float horizontalLimit = 2.8f;
 	private float enemySpawnTimer;

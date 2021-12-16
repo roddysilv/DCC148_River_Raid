@@ -50,6 +50,8 @@ MonoBehaviour:
   speed: -1
   bulletSpeed: -2
   shootingInterval: 3
+  spriteRenderer: {fileID: 0}
+  newSprite: {fileID: 21300000, guid: 1ef9301c8db66b448992a752f2fa91bc, type: 3}
 --- !u!212 &8914421584742632898
 SpriteRenderer:
   m_ObjectHideFlags: 0
