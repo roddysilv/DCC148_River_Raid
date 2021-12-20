@@ -24,6 +24,7 @@ public class GameController : MonoBehaviour
     private float fuelSpawnTimer;
     private float restartTimer = 3f;
     public ObjectPool enemyPool;
+    public ObjectPoolH enemyPoolH;
 
 
     // Start is called before the first frame update
@@ -49,6 +50,7 @@ public class GameController : MonoBehaviour
                 enemyInstance.transform.position = new Vector2(Random.Range(-horizontalLimit, horizontalLimit), player.transform.position.y + Screen.height / 100f);
                 enemyInstance.GetComponent<Enemy>().OnKill += OnEnemyKill;
 
+                //GameObject enemyHInstance = enemyPoolH.GetObj ();
                 GameObject enemyHInstance = Instantiate(enemyHPrefab);
                 enemyHInstance.transform.SetParent(transform);
                 enemyHInstance.transform.position = new Vector2(Random.Range(-horizontalLimit, horizontalLimit), player.transform.position.y + Screen.height / 100f);

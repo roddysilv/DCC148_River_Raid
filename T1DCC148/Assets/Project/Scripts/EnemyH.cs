@@ -20,7 +20,6 @@ public class EnemyH : MonoBehaviour
     void Start()
     {
         shootingTimer = Random.Range(0f, shootingInterval);
-        //spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
     }
 
@@ -37,12 +36,6 @@ public class EnemyH : MonoBehaviour
             bulletInstance.GetComponent<Rigidbody2D>().velocity = new Vector2(0, bulletSpeed);
             Destroy(bulletInstance, 3f);
         }
-
-        /*if(GetComponent<Rigidbody2D>().velocity[1] == 0){
-			Debug.Log("Speed: 0");
-			ChangeSprite();
-		}*/
-
     }
 
 
