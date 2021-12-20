@@ -52,7 +52,7 @@ public class GameController : MonoBehaviour
                 GameObject enemyHInstance = Instantiate(enemyHPrefab);
                 enemyHInstance.transform.SetParent(transform);
                 enemyHInstance.transform.position = new Vector2(Random.Range(-horizontalLimit, horizontalLimit), player.transform.position.y + Screen.height / 100f);
-                enemyHInstance.GetComponent<Enemy>().OnKill += OnEnemyKill;
+                enemyHInstance.GetComponent<EnemyH>().OnKill += OnEnemyKill;
 
             }
             fuelSpawnTimer -= Time.deltaTime;
