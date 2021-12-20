@@ -259,9 +259,9 @@ MonoBehaviour:
   gameCamera: {fileID: 519420028}
   scoreText: {fileID: 272784418}
   fuelText: {fileID: 677297089}
-  fuelDecreaseSpeed: 5
+  fuelDecreaseSpeed: 3
   fuelPrefab: {fileID: 261775217817196036, guid: c76dcbb71e9597849848ea3adff1fcea, type: 3}
-  fuelSpawnInterval: 9
+  fuelSpawnInterval: 15
   enemyPool: {fileID: 673587870}
   enemyPoolH: {fileID: 1288757502}
 --- !u!1 &237623548

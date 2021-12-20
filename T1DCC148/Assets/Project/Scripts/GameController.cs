@@ -70,10 +70,20 @@ public class GameController : MonoBehaviour
 
             fuel -= Time.deltaTime * fuelDecreaseSpeed;
             fuelText.text = "Fuel: " + (int)fuel;
+            if (fuel <= 100)
+            {
+                fuelText.color = Color.Lerp(Color.yellow, Color.green, (fuel - 50) / 50f); // muda a cor de verde para amarelo 
+            }
+            if (fuel < 50)
+            {
+                fuelText.color = Color.Lerp(Color.red, Color.yellow, fuel / 50f); // muda a cor de amarelo para vermelho 
+            }
+            
             if (fuel <= 0)
             {
                 fuelText.text = "Fuel: 0";
                 Destroy(player.gameObject);
+                //TODO Tela de Game Over
             }
         }
         else
