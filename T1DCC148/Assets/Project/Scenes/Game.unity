@@ -253,6 +253,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1490333463}
   enemyPrefab: {fileID: 8914421584742632910, guid: 03bbef95d380c2346a055be9b305b520, type: 3}
+  enemyHPrefab: {fileID: 71738276667593903, guid: 1fc98af2979a1f344957cf459db5e18b, type: 3}
   enemySpawnInterval: 1
   horizontalLimit: 2.8
   gameCamera: {fileID: 519420028}
@@ -1743,7 +1744,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.008339405, y: -0.01250881}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1754,7 +1755,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.46, y: 0.58}
+  m_Size: {x: 1.9276977, y: 1.7391478}
   m_EdgeRadius: 0
 --- !u!114 &1490333463
 MonoBehaviour:

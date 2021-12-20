@@ -8,6 +8,7 @@ TagManager:
   - EnemyBullet
   - Enemy
   - Fuel
+  - EnemyHelicopter
   layers:
   - Default
   - TransparentFX
