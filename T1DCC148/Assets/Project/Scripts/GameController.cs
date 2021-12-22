@@ -70,13 +70,22 @@ public class GameController : MonoBehaviour
 
             fuel -= Time.deltaTime * fuelDecreaseSpeed;
             fuelText.text = "Fuel: " + (int)fuel;
-            if (fuel <= 100)
+            if (fuel >= 50 && fuel <= 100)
             {
                 fuelText.color = Color.Lerp(Color.yellow, Color.green, (fuel - 50) / 50f); // muda a cor de verde para amarelo 
-            }
-            if (fuel < 50)
+            } else if (fuel >= 20 && fuel < 50)
             {
-                fuelText.color = Color.Lerp(Color.red, Color.yellow, fuel / 50f); // muda a cor de amarelo para vermelho 
+                fuelText.color = Color.Lerp(Color.red, Color.yellow, fuel / 30f); // muda a cor de amarelo para vermelho 
+            }
+            if(fuel < 20)
+            {
+                if ((int)fuel % 2 == 0){
+                    fuelText.color = Color.red;
+                } else {
+                    fuelText.color = Color.yellow;
+                }
+                //fuelText.color = BlinkingColor(Color.red, Color.yellow, fuel / 100f);
+                //fuelText.color = (Mathf.Sin(Time.time * 2) +1) / 2;
             }
             
             if (fuel <= 0)
@@ -91,7 +100,8 @@ public class GameController : MonoBehaviour
             restartTimer -= Time.deltaTime;
             if (restartTimer <= 0f)
             {
-                SceneManager.LoadScene("Game");
+                //SceneManager.LoadScene("Game");
+                SceneManager.LoadScene("GameOver");
             }
         }
         // Delete enemies.
