@@ -70,6 +70,7 @@ public class GameController : MonoBehaviour
 
             fuel -= Time.deltaTime * fuelDecreaseSpeed;
             fuelText.text = "Fuel: " + (int)fuel;
+            // Controla a cor do medidor de combustivel de acordo com o nível
             if (fuel >= 50 && fuel <= 100)
             {
                 fuelText.color = Color.Lerp(Color.yellow, Color.green, (fuel - 50) / 50f); // muda a cor de verde para amarelo 
@@ -84,15 +85,12 @@ public class GameController : MonoBehaviour
                 } else {
                     fuelText.color = Color.yellow;
                 }
-                //fuelText.color = BlinkingColor(Color.red, Color.yellow, fuel / 100f);
-                //fuelText.color = (Mathf.Sin(Time.time * 2) +1) / 2;
             }
             
             if (fuel <= 0)
             {
                 fuelText.text = "Fuel: 0";
                 Destroy(player.gameObject);
-                //TODO Tela de Game Over
             }
         }
         else
