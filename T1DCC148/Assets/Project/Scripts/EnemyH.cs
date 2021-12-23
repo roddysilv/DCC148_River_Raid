@@ -46,6 +46,11 @@ public class EnemyH : MonoBehaviour
             gameObject.SetActive(false);
             Destroy(otherCollider.gameObject);
         }
+        if (otherCollider.tag == "Player")
+        {
+            gameObject.SetActive(false);
+            Destroy(otherCollider.gameObject);
+        }
         if (OnKill != null)
         {
             OnKill();
