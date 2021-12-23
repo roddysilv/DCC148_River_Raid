@@ -17,6 +17,7 @@ public class MainMenuController : MonoBehaviour {
     public GameObject ControlsPanel;
     public GameObject GfxPanel;
     public GameObject LoadGamePanel;
+    public GameObject AboutPanel;
 
     // Use this for initialization
     void Start () {
@@ -124,6 +125,24 @@ public class MainMenuController : MonoBehaviour {
 
     }
 
+    public void openAbout_Game()
+    {
+        //enable respective panel
+        MainOptionsPanel.SetActive(false);
+        GamePanel.SetActive(false);
+        ControlsPanel.SetActive(false);
+        GfxPanel.SetActive(false);
+        LoadGamePanel.SetActive(false);
+        AboutPanel.SetActive(true);
+
+        //play anim for opening game options panel
+        anim.Play("OptTweenAnim_on");
+
+        //play click sfx
+        playClickSound();
+
+    }
+
     public void newGame()
     {
         if (!string.IsNullOrEmpty(newGameSceneName))
@@ -156,6 +175,24 @@ public class MainMenuController : MonoBehaviour {
         //play click sfx
         playClickSound();
 
+    }
+
+    public void back_about()
+    {
+        /*MainOptionsPanel.SetActive(false);
+        GamePanel.SetActive(false);
+        ControlsPanel.SetActive(false);
+        GfxPanel.SetActive(false);
+        LoadGamePanel.SetActive(false);*/
+        AboutPanel.SetActive(false);
+        //simply play anim for CLOSING main options panel
+        anim.Play("buttonTweenAnims_off");
+
+        //disable BLUR
+       // Camera.main.GetComponent<Animator>().Play("BlurOff");
+
+        //play click sfx
+        playClickSound();
     }
 
     public void Quit()
