@@ -9,6 +9,8 @@ public class MainMenuController : MonoBehaviour {
 
     public string newGameSceneName;
     public int quickSaveSlotID;
+    public AudioSource clickSound;
+    public AudioSource hoverSound;
 
     [Header("Options Panel")]
     public GameObject MainOptionsPanel;
@@ -202,15 +204,13 @@ public class MainMenuController : MonoBehaviour {
     #endregion
 
     #region Sounds
-    public void playHoverClip()
-    {
-       
+    public void playHoverClip(){
+       hoverSound.Play();
     }
 
     void playClickSound() {
-
+        clickSound.Play();
     }
-
 
     #endregion
 }
