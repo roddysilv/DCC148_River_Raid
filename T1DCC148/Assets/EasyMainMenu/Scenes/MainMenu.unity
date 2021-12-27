@@ -13239,7 +13239,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -2}
+  m_AnchoredPosition: {x: 2, y: -2}
   m_SizeDelta: {x: 666, y: 264.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2013441092
@@ -13274,9 +13274,10 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: Este jogo foi criado pelos alunos Yuri, Leonardo, Michel e Rodrigo para
-    a disciplina de Desenvolvimento de Jogos
+    m_LineSpacing: 1.1
+  m_Text: "Este jogo foi inspirado no jogo River Raid e foi  criado pelos alunos
+    Yuri, Leonardo, Michel e Rodrigo para a disciplina de Desenvolvimento de Jogos\n\n=>
+    Controles\nSetas do teclado: Movimentam o avi\xE3o\nClique do mouse: Faz um disparo\n\nDivirta-se!\n\n\xA92021"
 --- !u!222 &2013441093
 CanvasRenderer:
   m_ObjectHideFlags: 0
