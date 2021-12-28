@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using ZenvaVR;
 using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(AudioSource))]
 public class GameController : MonoBehaviour
 {
     public Player player;
@@ -26,6 +27,8 @@ public class GameController : MonoBehaviour
     //public ObjectPool enemyPool;
     //public ObjectPoolH enemyPoolH;
     public AudioSource gameMusic;
+    public AudioSource fuelAlertSource;
+    public AudioClip fuelAlertSound;
 
 
     // Start is called before the first frame update
@@ -34,6 +37,7 @@ public class GameController : MonoBehaviour
         enemySpawnTimer = enemySpawnInterval;
         player.OnFuel += OnFuel;
         fuelSpawnTimer = Random.Range(0f, fuelSpawnInterval);
+        fuelAlertSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -85,6 +89,7 @@ public class GameController : MonoBehaviour
             {
                 if ((int)fuel % 2 == 0){
                     fuelText.color = Color.red;
+                    fuelAlertSource.PlayOneShot(fuelAlertSound);
                 } else {
                     fuelText.color = Color.yellow;
                 }
