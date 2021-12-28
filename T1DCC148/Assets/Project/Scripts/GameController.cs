@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour
     public Player player;
     public Boss boss;
     public GameObject bossPrefab;
+    private bool isOnBossScene = false;
     public GameObject enemyPrefab;
     public GameObject enemyHPrefab;
     public float enemySpawnInterval = 1f;
@@ -33,7 +34,7 @@ public class GameController : MonoBehaviour
     public AudioClip fuelAlertSound;
     public float BossDist = 2;
     public float BossSpeed = 0.001f;
-    private float xxx = 0;
+    private float angle = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -42,12 +43,6 @@ public class GameController : MonoBehaviour
         player.OnFuel += OnFuel;
         fuelSpawnTimer = Random.Range(0f, fuelSpawnInterval);
         fuelAlertSource = GetComponent<AudioSource>();
-
-        // boss
-        /*GameObject bossInstance = Instantiate(bossPrefab);
-        bossInstance.gameObject.SetActive(false);
-        bossInstance.transform.SetParent(transform);
-        bossInstance.transform.position = new Vector2(Random.Range(-horizontalLimit, horizontalLimit), player.transform.position.y + Screen.height / 100f);*/
     }
 
     // Update is called once per frame
@@ -57,7 +52,6 @@ public class GameController : MonoBehaviour
         if (player != null)
         {
             enemySpawnTimer -= Time.deltaTime;
-            bool isOnBossScene = false;
             if (enemySpawnTimer <= 0 && !isOnBossScene)
             {
                 enemySpawnTimer = enemySpawnInterval;
@@ -121,12 +115,12 @@ public class GameController : MonoBehaviour
             {
                 //gameMusic.Stop();
                 //SceneManager.LoadScene("Boss");
-                if(!isOnBossScene){
+                boss.gameObject.SetActive(true);
+                if(isOnBossScene){ // movimenta o boss
                     //boss.transform.position = new Vector2(Random.Range(-horizontalLimit, horizontalLimit), player.transform.position.y + Screen.height / 100f);
-                    boss.transform.position = new Vector2(Mathf.Sin(xxx) * horizontalLimit, player.transform.position.y + BossDist);
-                    xxx = xxx + BossSpeed;
+                    boss.transform.position = new Vector2(Mathf.Sin(angle) * horizontalLimit, player.transform.position.y + BossDist);
+                    angle += BossSpeed;
                 }
-                boss.gameObject.SetActive(true); // desativado temporariamente até que o boss seja consertado
                 isOnBossScene = true; // para de instanciar os inimigos
             }
         }
