@@ -93,6 +93,12 @@ public class GameController : MonoBehaviour
                 fuelText.text = "Fuel: 0";
                 Destroy(player.gameObject);
             }
+            //Ativa a cena do boss
+            if (score >= 200)
+            {
+                //gameMusic.Stop();
+                SceneManager.LoadScene("Boss");
+            }
         }
         else
         {
