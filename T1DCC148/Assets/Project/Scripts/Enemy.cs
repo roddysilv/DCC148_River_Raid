@@ -10,8 +10,6 @@ public class Enemy : MonoBehaviour
     public float shootingInterval = 6f;
     public delegate void KillHandler();
     public event KillHandler OnKill;
-    //public SpriteRenderer spriteRenderer;
-    //public Sprite newSprite;
 
     private float shootingTimer;
 
@@ -20,14 +18,8 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         shootingTimer = Random.Range(0f, shootingInterval);
-        //spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         GetComponent<Rigidbody2D>().velocity = new Vector2(0, speed);
     }
-
-    /*void ChangeSprite()
-	{
-		spriteRenderer.sprite = newSprite;
-	}*/
 
     // Update is called once per frame
     void Update()
@@ -42,12 +34,6 @@ public class Enemy : MonoBehaviour
             bulletInstance.GetComponent<Rigidbody2D>().velocity = new Vector2(0, bulletSpeed);
             Destroy(bulletInstance, 3f);
         }
-
-        /*if(GetComponent<Rigidbody2D>().velocity[1] == 0){
-			Debug.Log("Speed: 0");
-			ChangeSprite();
-		}*/
-
     }
 
 
@@ -63,7 +49,4 @@ public class Enemy : MonoBehaviour
             OnKill();
         }
     }
-
-
-
 }

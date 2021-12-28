@@ -10,9 +10,6 @@ public class EnemyH : MonoBehaviour
     public float shootingInterval = 6f;
     public delegate void KillHandler();
     public event KillHandler OnKill;
-    //public SpriteRenderer spriteRenderer;
-    //public Sprite newSprite;
-
     private float shootingTimer;
 
 

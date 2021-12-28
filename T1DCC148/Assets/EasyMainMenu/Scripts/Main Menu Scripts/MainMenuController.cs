@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenuController : MonoBehaviour {
+public class MainMenuController : MonoBehaviour
+{
 
     Animator anim;
 
@@ -22,7 +23,8 @@ public class MainMenuController : MonoBehaviour {
     public GameObject AboutPanel;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         anim = GetComponent<Animator>();
 
         //new key
@@ -45,7 +47,7 @@ public class MainMenuController : MonoBehaviour {
 
         //enable BLUR
         //Camera.main.GetComponent<Animator>().Play("BlurOn");
-       
+
     }
 
     public void openStartGameOptions()
@@ -62,7 +64,7 @@ public class MainMenuController : MonoBehaviour {
 
         //enable BLUR
         //Camera.main.GetComponent<Animator>().Play("BlurOn");
-        
+
     }
 
     public void openOptions_Game()
@@ -147,8 +149,8 @@ public class MainMenuController : MonoBehaviour {
 
     public void newGame()
     {
-        if (!string.IsNullOrEmpty(newGameSceneName)){
-            clickSound.Play();
+        if (!string.IsNullOrEmpty(newGameSceneName))
+        {
             SceneManager.LoadScene(newGameSceneName);
         }
         else
@@ -165,7 +167,7 @@ public class MainMenuController : MonoBehaviour {
         anim.Play("buttonTweenAnims_off");
 
         //disable BLUR
-       // Camera.main.GetComponent<Animator>().Play("BlurOff");
+        // Camera.main.GetComponent<Animator>().Play("BlurOff");
 
         //play click sfx
         playClickSound();
@@ -175,7 +177,7 @@ public class MainMenuController : MonoBehaviour {
     {
         //simply play anim for CLOSING main options panel
         anim.Play("OptTweenAnim_off");
-        
+
         //play click sfx
         playClickSound();
 
@@ -183,17 +185,12 @@ public class MainMenuController : MonoBehaviour {
 
     public void back_about()
     {
-        /*MainOptionsPanel.SetActive(false);
-        GamePanel.SetActive(false);
-        ControlsPanel.SetActive(false);
-        GfxPanel.SetActive(false);
-        LoadGamePanel.SetActive(false);*/
         AboutPanel.SetActive(false);
         //simply play anim for CLOSING main options panel
         anim.Play("buttonTweenAnims_off");
 
         //disable BLUR
-       // Camera.main.GetComponent<Animator>().Play("BlurOff");
+        // Camera.main.GetComponent<Animator>().Play("BlurOff");
 
         //play click sfx
         playClickSound();
@@ -206,11 +203,13 @@ public class MainMenuController : MonoBehaviour {
     #endregion
 
     #region Sounds
-    public void playHoverClip(){
-       hoverSound.Play();
+    public void playHoverClip()
+    {
+        hoverSound.Play();
     }
 
-    void playClickSound() {
+    void playClickSound()
+    {
         clickSound.Play();
     }
 
