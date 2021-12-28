@@ -9,6 +9,8 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
     public Player player;
+    public Boss boss;
+    public GameObject bossPrefab;
     public GameObject enemyPrefab;
     public GameObject enemyHPrefab;
     public float enemySpawnInterval = 1f;
@@ -38,15 +40,23 @@ public class GameController : MonoBehaviour
         player.OnFuel += OnFuel;
         fuelSpawnTimer = Random.Range(0f, fuelSpawnInterval);
         fuelAlertSource = GetComponent<AudioSource>();
+
+        // boss
+        /*GameObject bossInstance = Instantiate(bossPrefab);
+        bossInstance.gameObject.SetActive(false);
+        bossInstance.transform.SetParent(transform);
+        bossInstance.transform.position = new Vector2(Random.Range(-horizontalLimit, horizontalLimit), player.transform.position.y + Screen.height / 100f);*/
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         if (player != null)
         {
             enemySpawnTimer -= Time.deltaTime;
-            if (enemySpawnTimer <= 0)
+            bool isOnBossScene = false;
+            if (enemySpawnTimer <= 0 && !isOnBossScene)
             {
                 enemySpawnTimer = enemySpawnInterval;
                 //GameObject enemyInstance = enemyPool.GetObj ();
@@ -81,31 +91,40 @@ public class GameController : MonoBehaviour
             if (fuel >= 50 && fuel <= 100)
             {
                 fuelText.color = Color.Lerp(Color.yellow, Color.green, (fuel - 50) / 50f); // muda a cor de verde para amarelo 
-            } else if (fuel >= 20 && fuel < 50)
+            }
+            else if (fuel >= 20 && fuel < 50)
             {
                 fuelText.color = Color.Lerp(Color.red, Color.yellow, fuel / 30f); // muda a cor de amarelo para vermelho 
             }
-            if(fuel < 20)
+            if (fuel < 20)
             {
-                if ((int)fuel % 2 == 0){
+                if ((int)fuel % 2 == 0)
+                {
                     fuelText.color = Color.red;
                     fuelAlertSource.PlayOneShot(fuelAlertSound);
-                } else {
+                }
+                else
+                {
                     fuelText.color = Color.yellow;
                 }
             }
-            
+
             if (fuel <= 0)
             {
                 fuelText.text = "Fuel: 0";
                 Destroy(player.gameObject);
             }
             //Ativa a cena do boss
-            /*if (score >= 200)
+            if (score >= 25)
             {
                 //gameMusic.Stop();
-                SceneManager.LoadScene("Boss");
-            }*/
+                //SceneManager.LoadScene("Boss");
+                if(!isOnBossScene){
+                    boss.transform.position = new Vector2(Random.Range(-horizontalLimit, horizontalLimit), player.transform.position.y + Screen.height / 100f);
+                }
+                //boss.gameObject.SetActive(true); // desativado temporariamente até que o boss seja consertado
+                isOnBossScene = true; // para de instanciar os inimigos
+            }
         }
         else
         {

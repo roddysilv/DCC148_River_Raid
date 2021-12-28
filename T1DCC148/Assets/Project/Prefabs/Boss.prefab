@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 1513124033386433600}
   - component: {fileID: 1513124033386433601}
   - component: {fileID: 6256838480693054980}
+  - component: {fileID: 1619983944400783792}
+  - component: {fileID: -1388367050452225740}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -163,3 +165,40 @@ PolygonCollider2D:
       - {x: 0.28, y: -0.76}
       - {x: 0.37, y: -0.61}
       - {x: 0.25, y: -0.53999996}
+--- !u!114 &1619983944400783792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513124033386433602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec500bd64f7f3c245b22468076189083, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 7465403876231228893, guid: f7cd49d1e89c81a4faab6d751b3ad7fe, type: 3}
+  speed: 0.25
+  bulletSpeed: -2
+  shootingInterval: 6
+--- !u!50 &-1388367050452225740
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513124033386433602}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

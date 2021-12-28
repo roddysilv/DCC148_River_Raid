@@ -16,7 +16,7 @@ public class Boss : MonoBehaviour
     void Start()
     {
         shootingTimer = Random.Range(0f, shootingInterval);
-        GetComponent<Rigidbody2D>().velocity = new Vector2(0, 1f);
+        GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
     }
 
     // Update is called once per frame
