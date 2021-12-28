@@ -269,6 +269,8 @@ MonoBehaviour:
   gameMusic: {fileID: 0}
   fuelAlertSource: {fileID: 1013997311}
   fuelAlertSound: {fileID: 8300000, guid: 22f06e78497f188c7bd6608edcb5ea20, type: 3}
+  BossDist: 2
+  BossSpeed: 0.001
 --- !u!82 &230054633
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1814,6 +1816,10 @@ PrefabInstance:
     - target: {fileID: 1513124033386433607, guid: d2ad51dd8f85e854dac540506be42548, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1619983944400783792, guid: d2ad51dd8f85e854dac540506be42548, type: 3}
+      propertyPath: speed
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2ad51dd8f85e854dac540506be42548, type: 3}

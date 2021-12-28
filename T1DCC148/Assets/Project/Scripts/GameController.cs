@@ -31,7 +31,9 @@ public class GameController : MonoBehaviour
     public AudioSource gameMusic;
     public AudioSource fuelAlertSource;
     public AudioClip fuelAlertSound;
-
+    public float BossDist = 2;
+    public float BossSpeed = 0.001f;
+    private float xxx = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -120,9 +122,11 @@ public class GameController : MonoBehaviour
                 //gameMusic.Stop();
                 //SceneManager.LoadScene("Boss");
                 if(!isOnBossScene){
-                    boss.transform.position = new Vector2(Random.Range(-horizontalLimit, horizontalLimit), player.transform.position.y + Screen.height / 100f);
+                    //boss.transform.position = new Vector2(Random.Range(-horizontalLimit, horizontalLimit), player.transform.position.y + Screen.height / 100f);
+                    boss.transform.position = new Vector2(Mathf.Sin(xxx) * horizontalLimit, player.transform.position.y + BossDist);
+                    xxx = xxx + BossSpeed;
                 }
-                //boss.gameObject.SetActive(true); // desativado temporariamente até que o boss seja consertado
+                boss.gameObject.SetActive(true); // desativado temporariamente até que o boss seja consertado
                 isOnBossScene = true; // para de instanciar os inimigos
             }
         }
