@@ -10,7 +10,7 @@ public class Boss : MonoBehaviour
     public float shootingInterval = 6f;
     /*public delegate void KillHandler();
     public event KillHandler OnKill;*/
-    public int bossHealth = 5;
+    public int bossHealth = 100;
 
     private float shootingTimer;
     // Start is called before the first frame update
@@ -36,8 +36,8 @@ public class Boss : MonoBehaviour
         // Se a vida do boss chegar a zero, o boss morre
         if (bossHealth <= 0)
         {
-            gameObject.SetActive(false);
-            Destroy(gameObject);
+            gameObject.SetActive(false); // remove da cena
+            //Destroy(gameObject); // destroi o objeto (desativado pois o GameController usa essa variável)
         }
     }
 
@@ -47,7 +47,7 @@ public class Boss : MonoBehaviour
         {
             gameObject.SetActive(false);
             Destroy(otherCollider.gameObject);
-            bossHealth -= 1;
+            bossHealth -= 10;
         }
         if (otherCollider.tag == "Player")
         {
