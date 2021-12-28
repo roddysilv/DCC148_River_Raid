@@ -8,8 +8,8 @@ public class EnemyH : MonoBehaviour
     public float speed;
     public float bulletSpeed;
     public float shootingInterval = 6f;
-    public delegate void KillHandler();
-    public event KillHandler OnKill;
+    //public delegate void KillHandler();
+    //public event KillHandler OnKill;
     public delegate void ScoreHandler();
     public event ScoreHandler OnAddScore;
     private float shootingTimer;
@@ -53,10 +53,10 @@ public class EnemyH : MonoBehaviour
             gameObject.SetActive(false);
             Destroy(otherCollider.gameObject);
         }
-        if (OnKill != null)
+        /*if (OnKill != null)
         {
             OnKill();
-        }
+        }*/
     }
 
 }

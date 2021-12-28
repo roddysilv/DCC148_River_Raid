@@ -8,8 +8,8 @@ public class Enemy : MonoBehaviour
     public float speed;
     public float bulletSpeed;
     public float shootingInterval = 6f;
-    public delegate void KillHandler();
-    public event KillHandler OnKill;
+    //public delegate void KillHandler();
+    //public event KillHandler OnKill;
     public delegate void ScoreHandler();
     public event ScoreHandler OnAddScore;
     private float shootingTimer;
@@ -49,9 +49,9 @@ public class Enemy : MonoBehaviour
                 OnAddScore();
             }
         }
-        if (OnKill != null)
+        /*if (OnKill != null)
         {
             OnKill();
-        }
+        }*/
     }
 }

@@ -49,14 +49,14 @@ public class GameController : MonoBehaviour
                 GameObject enemyInstance = Instantiate(enemyPrefab);
                 enemyInstance.transform.SetParent(transform);
                 enemyInstance.transform.position = new Vector2(Random.Range(-horizontalLimit, horizontalLimit), player.transform.position.y + Screen.height / 100f);
-                enemyInstance.GetComponent<Enemy>().OnKill += OnEnemyKill;
+                //enemyInstance.GetComponent<Enemy>().OnKill += OnEnemyKill;
                 enemyInstance.GetComponent<Enemy>().OnAddScore += OnEnemyDestroy; // atualiza a pontuação do player ao destruir um inimigo
 
                 //GameObject enemyHInstance = enemyPoolH.GetObj ();
                 GameObject enemyHInstance = Instantiate(enemyHPrefab);
                 enemyHInstance.transform.SetParent(transform);
                 enemyHInstance.transform.position = new Vector2(Random.Range(-horizontalLimit, horizontalLimit), player.transform.position.y + Screen.height / 100f);
-                enemyHInstance.GetComponent<EnemyH>().OnKill += OnEnemyKill;
+                //enemyHInstance.GetComponent<EnemyH>().OnKill += OnEnemyKill;
                 enemyHInstance.GetComponent<EnemyH>().OnAddScore += OnEnemyDestroy; // atualiza a pontuação do player ao destruir um inimigo
 
             }
@@ -131,11 +131,11 @@ public class GameController : MonoBehaviour
         }
     }
 
-    void OnEnemyKill()
+    /*void OnEnemyKill()
     {
         //score += 25;
         scoreText.text = "Score: " + score;
-    }
+    }*/
 
     void OnFuel()
     {
