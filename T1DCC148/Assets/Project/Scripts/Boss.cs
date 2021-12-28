@@ -8,8 +8,9 @@ public class Boss : MonoBehaviour
     public float speed;
     public float bulletSpeed;
     public float shootingInterval = 6f;
-    public delegate void KillHandler();
-    public event KillHandler OnKill;
+    /*public delegate void KillHandler();
+    public event KillHandler OnKill;*/
+    public int bossHealth = 5;
 
     private float shootingTimer;
     // Start is called before the first frame update
@@ -32,6 +33,12 @@ public class Boss : MonoBehaviour
             bulletInstance.GetComponent<Rigidbody2D>().velocity = new Vector2(0, bulletSpeed);
             Destroy(bulletInstance, 3f);
         }
+        // Se a vida do boss chegar a zero, o boss morre
+        if (bossHealth <= 0)
+        {
+            gameObject.SetActive(false);
+            Destroy(gameObject);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D otherCollider)
@@ -40,15 +47,16 @@ public class Boss : MonoBehaviour
         {
             gameObject.SetActive(false);
             Destroy(otherCollider.gameObject);
+            bossHealth -= 1;
         }
         if (otherCollider.tag == "Player")
         {
             gameObject.SetActive(false);
             Destroy(otherCollider.gameObject);
         }
-        if (OnKill != null)
+        /*if (OnKill != null)
         {
             OnKill();
-        }
+        }*/
     }
 }
