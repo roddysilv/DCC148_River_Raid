@@ -8642,6 +8642,7 @@ MonoBehaviour:
   quickSaveSlotID: 6
   clickSound: {fileID: 485780155}
   hoverSound: {fileID: 1343776776}
+  mainMenuMusic: {fileID: 1615144545}
   MainOptionsPanel: {fileID: 443590089}
   StartGameOptionsPanel: {fileID: 1502024977}
   GamePanel: {fileID: 512787264}
@@ -10369,11 +10370,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 0.4
+  m_audioClip: {fileID: 8300000, guid: 1c2e7972880a6283885b7d3a4dd12a29, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.15
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

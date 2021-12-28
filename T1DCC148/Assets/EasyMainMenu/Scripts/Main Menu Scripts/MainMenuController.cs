@@ -12,6 +12,7 @@ public class MainMenuController : MonoBehaviour
     public int quickSaveSlotID;
     public AudioSource clickSound;
     public AudioSource hoverSound;
+    public AudioSource mainMenuMusic;
 
     [Header("Options Panel")]
     public GameObject MainOptionsPanel;
@@ -29,6 +30,8 @@ public class MainMenuController : MonoBehaviour
 
         //new key
         PlayerPrefs.SetInt("quickSaveSlot", quickSaveSlotID);
+
+        mainMenuMusic.Play();
     }
 
     #region Open Different panels
@@ -133,6 +136,7 @@ public class MainMenuController : MonoBehaviour
     {
         //enable respective panel
         MainOptionsPanel.SetActive(false);
+        StartGameOptionsPanel.SetActive(false);
         GamePanel.SetActive(false);
         ControlsPanel.SetActive(false);
         GfxPanel.SetActive(false);
