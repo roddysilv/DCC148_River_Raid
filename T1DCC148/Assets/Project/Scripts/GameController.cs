@@ -23,8 +23,8 @@ public class GameController : MonoBehaviour
     public float fuelSpawnInterval = 9f;
     private float fuelSpawnTimer;
     private float restartTimer = 3f;
-    public ObjectPool enemyPool;
-    public ObjectPoolH enemyPoolH;
+    //public ObjectPool enemyPool;
+    //public ObjectPoolH enemyPoolH;
     public AudioSource gameMusic;
 
 
@@ -50,12 +50,14 @@ public class GameController : MonoBehaviour
                 enemyInstance.transform.SetParent(transform);
                 enemyInstance.transform.position = new Vector2(Random.Range(-horizontalLimit, horizontalLimit), player.transform.position.y + Screen.height / 100f);
                 enemyInstance.GetComponent<Enemy>().OnKill += OnEnemyKill;
+                enemyInstance.GetComponent<Enemy>().OnAddScore += OnEnemyDestroy; // atualiza a pontuação do player ao destruir um inimigo
 
                 //GameObject enemyHInstance = enemyPoolH.GetObj ();
                 GameObject enemyHInstance = Instantiate(enemyHPrefab);
                 enemyHInstance.transform.SetParent(transform);
                 enemyHInstance.transform.position = new Vector2(Random.Range(-horizontalLimit, horizontalLimit), player.transform.position.y + Screen.height / 100f);
                 enemyHInstance.GetComponent<EnemyH>().OnKill += OnEnemyKill;
+                enemyHInstance.GetComponent<EnemyH>().OnAddScore += OnEnemyDestroy; // atualiza a pontuação do player ao destruir um inimigo
 
             }
             fuelSpawnTimer -= Time.deltaTime;
@@ -94,11 +96,11 @@ public class GameController : MonoBehaviour
                 Destroy(player.gameObject);
             }
             //Ativa a cena do boss
-            if (score >= 200)
+            /*if (score >= 200)
             {
                 //gameMusic.Stop();
                 SceneManager.LoadScene("Boss");
-            }
+            }*/
         }
         else
         {
@@ -131,7 +133,7 @@ public class GameController : MonoBehaviour
 
     void OnEnemyKill()
     {
-        score += 25;
+        //score += 25;
         scoreText.text = "Score: " + score;
     }
 
@@ -140,5 +142,10 @@ public class GameController : MonoBehaviour
         fuel = 100f;
     }
 
+    // Atualiza o score quando o player destrói um inimigo
+    void OnEnemyDestroy()
+    {
+        score += 25;
+        scoreText.text = "Score: " + score;
+    }
 }
-

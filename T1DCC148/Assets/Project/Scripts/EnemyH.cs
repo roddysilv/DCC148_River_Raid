@@ -10,6 +10,8 @@ public class EnemyH : MonoBehaviour
     public float shootingInterval = 6f;
     public delegate void KillHandler();
     public event KillHandler OnKill;
+    public delegate void ScoreHandler();
+    public event ScoreHandler OnAddScore;
     private float shootingTimer;
 
 
@@ -35,13 +37,16 @@ public class EnemyH : MonoBehaviour
         }
     }
 
-
     void OnTriggerEnter2D(Collider2D otherCollider)
     {
         if (otherCollider.tag == "PlayerBullet")
         {
             gameObject.SetActive(false);
             Destroy(otherCollider.gameObject);
+            if (OnAddScore != null)
+            {
+                OnAddScore();
+            }
         }
         if (otherCollider.tag == "Player")
         {
