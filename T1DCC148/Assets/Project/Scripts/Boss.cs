@@ -36,25 +36,25 @@ public class Boss : MonoBehaviour
             GameObject bulletInstance1 = Instantiate(bulletPrefab);
             bulletInstance1.transform.SetParent(transform.parent);
             bulletInstance1.transform.position = transform.position;
-            bulletInstance1.GetComponent<Rigidbody2D>().velocity = new Vector2(-1.5f, bulletSpeed);
+            bulletInstance1.GetComponent<Rigidbody2D>().velocity = new Vector2(-2f, bulletSpeed);
             Destroy(bulletInstance1, 3f);
 
             GameObject bulletInstance2 = Instantiate(bulletPrefab);
             bulletInstance2.transform.SetParent(transform.parent);
             bulletInstance2.transform.position = transform.position;
-            bulletInstance2.GetComponent<Rigidbody2D>().velocity = new Vector2(1.5f, bulletSpeed);
+            bulletInstance2.GetComponent<Rigidbody2D>().velocity = new Vector2(2f, bulletSpeed);
             Destroy(bulletInstance2, 3f);
 
             GameObject bulletInstance3 = Instantiate(bulletPrefab);
             bulletInstance3.transform.SetParent(transform.parent);
             bulletInstance3.transform.position = transform.position;
-            bulletInstance3.GetComponent<Rigidbody2D>().velocity = new Vector2(-3f, bulletSpeed);
+            bulletInstance3.GetComponent<Rigidbody2D>().velocity = new Vector2(-6f, bulletSpeed);
             Destroy(bulletInstance3, 3f);
 
             GameObject bulletInstance4 = Instantiate(bulletPrefab);
             bulletInstance4.transform.SetParent(transform.parent);
             bulletInstance4.transform.position = transform.position;
-            bulletInstance4.GetComponent<Rigidbody2D>().velocity = new Vector2(3f, bulletSpeed);
+            bulletInstance4.GetComponent<Rigidbody2D>().velocity = new Vector2(6f, bulletSpeed);
             Destroy(bulletInstance4, 3f);
         }
         // Se a vida do boss chegar a zero, o boss morre

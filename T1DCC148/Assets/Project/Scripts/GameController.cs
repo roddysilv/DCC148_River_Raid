@@ -115,7 +115,7 @@ public class GameController : MonoBehaviour
                 Destroy(player.gameObject);
             }
             //Ativa a cena do boss
-            if (score >= 25)
+            if (score >= 500)
             {
                 bossHealth = boss.GetBossHealth();
                 BossHealthText.text = "Boss: " + ((int)bossHealth * 10);
