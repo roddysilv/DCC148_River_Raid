@@ -10,7 +10,7 @@ public class Boss : MonoBehaviour
     public float shootingInterval = 6f;
     /*public delegate void KillHandler();
     public event KillHandler OnKill;*/
-    public int bossHealth = 5;
+    private int bossHealth = 10;
 
     private float shootingTimer;
     // Start is called before the first frame update
@@ -83,4 +83,14 @@ public class Boss : MonoBehaviour
             OnKill();
         }*/
     }
+
+    public int GetBossHealth()
+    {
+        return bossHealth;
+    }
+
+    /*public void SetBossHealth(int health)
+    {
+        bossHealth = health;
+    }*/
 }

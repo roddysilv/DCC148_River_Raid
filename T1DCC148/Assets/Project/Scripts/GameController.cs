@@ -19,9 +19,11 @@ public class GameController : MonoBehaviour
     private float enemySpawnTimer;
     private int score;
     private float fuel = 100f;
+    private int bossHealth;
     public GameObject gameCamera;
     public Text scoreText;
     public Text fuelText;
+    public Text BossHealthText;
     public float fuelDecreaseSpeed = 5f;
     public GameObject fuelPrefab;
     public float fuelSpawnInterval = 9f;
@@ -44,6 +46,7 @@ public class GameController : MonoBehaviour
         player.OnFuel += OnFuel;
         fuelSpawnTimer = Random.Range(0f, fuelSpawnInterval);
         fuelAlertSource = GetComponent<AudioSource>();
+        BossHealthText.text = ""; // inicializa o texto da vida do boss como vazio
     }
 
     // Update is called once per frame
@@ -114,6 +117,10 @@ public class GameController : MonoBehaviour
             //Ativa a cena do boss
             if (score >= 25)
             {
+                bossHealth = boss.GetBossHealth();
+                BossHealthText.text = "Boss: " + ((int)bossHealth * 10);
+                BossHealthText.color = Color.Lerp(Color.blue, Color.red, bossHealth / 10f);
+                //BossHealthText.GameObject.SetActive(false);
                 if (boss != null)
                 {
                     //gameMusic.Stop();
