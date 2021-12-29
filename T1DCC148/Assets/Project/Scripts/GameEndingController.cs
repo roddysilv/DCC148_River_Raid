@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameEndingController : MonoBehaviour
 {
     // Start is called before the first frame update
-    private float restartTimer = 3f;
+    private float restartTimer = 156f; // tempo da música terminar
     public AudioSource gameEndingMusic;
     // Start is called before the first frame update
     void Start()
@@ -17,9 +18,9 @@ public class GameEndingController : MonoBehaviour
     void Update()
     {
         restartTimer -= Time.deltaTime;
-        /*if (restartTimer <= 0f)
+        if (restartTimer <= 0f)
         {
             SceneManager.LoadScene("MainMenu");
-        }*/
+        }
     }
 }
