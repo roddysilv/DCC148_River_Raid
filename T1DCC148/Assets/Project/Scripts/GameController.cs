@@ -26,11 +26,10 @@ public class GameController : MonoBehaviour
     public GameObject fuelPrefab;
     public float fuelSpawnInterval = 9f;
     private float fuelSpawnTimer;
-    private float restartTimer = 3f;
+    private float restartTimer = 1f;
     //public ObjectPool enemyPool;
     //public ObjectPoolH enemyPoolH;
     public AudioSource gameMusic;
-    public AudioSource bossIsDead;
     public AudioSource fuelAlertSource;
     public AudioClip fuelAlertSound;
     public float BossDist = 2;
@@ -118,24 +117,21 @@ public class GameController : MonoBehaviour
                 if (boss != null)
                 {
                     //gameMusic.Stop();
-                    //SceneManager.LoadScene("Boss");
                     boss.gameObject.SetActive(true);
                     if (isOnBossScene)
-                    { // movimenta o boss
-                      //boss.transform.position = new Vector2(Random.Range(-horizontalLimit, horizontalLimit), player.transform.position.y + Screen.height / 100f);
+                    { // introdução do boss na cena
                         if(player.transform.position.y + BossAproach > player.transform.position.y + BossDist){
                             boss.transform.position = new Vector2(Mathf.Sin(angle) * horizontalLimit, player.transform.position.y + BossAproach);
-                            BossAproach = BossAproach - 0.005f;    
+                            BossAproach = BossAproach - 0.01f;    
                             angle += BossSpeed;
                         }
-                        else{
+                        else{// movimenta o boss
                             boss.transform.position = new Vector2(Mathf.Sin(angle) * horizontalLimit, player.transform.position.y + BossDist);
                             angle += BossSpeed;
                         }
                     }
                     isOnBossScene = true; // para de instanciar os inimigos
-                } else {
-                    bossIsDead.Play();
+                } else { // acionado quando o boss morre
                     restartTimer -= Time.deltaTime;
                     if (restartTimer <= 0f)
                     {

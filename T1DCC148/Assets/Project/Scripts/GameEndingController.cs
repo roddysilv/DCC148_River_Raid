@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameEndingController : MonoBehaviour
 {
     // Start is called before the first frame update
-    private float restartTimer = 156f; // tempo da música terminar
+    private float restartTimer = 14f; // tempo da música terminar
     public AudioSource gameEndingMusic;
     // Start is called before the first frame update
     void Start()
