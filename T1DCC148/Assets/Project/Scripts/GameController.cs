@@ -48,7 +48,7 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
         if (player != null)
         {
             enemySpawnTimer -= Time.deltaTime;
@@ -113,15 +113,22 @@ public class GameController : MonoBehaviour
             //Ativa a cena do boss
             if (score >= 25)
             {
-                //gameMusic.Stop();
-                //SceneManager.LoadScene("Boss");
-                boss.gameObject.SetActive(true);
-                if(isOnBossScene){ // movimenta o boss
-                    //boss.transform.position = new Vector2(Random.Range(-horizontalLimit, horizontalLimit), player.transform.position.y + Screen.height / 100f);
-                    boss.transform.position = new Vector2(Mathf.Sin(angle) * horizontalLimit, player.transform.position.y + BossDist);
-                    angle += BossSpeed;
+                if (boss != null)
+                {
+                    //gameMusic.Stop();
+                    //SceneManager.LoadScene("Boss");
+                    boss.gameObject.SetActive(true);
+                    if (isOnBossScene)
+                    { // movimenta o boss
+                      //boss.transform.position = new Vector2(Random.Range(-horizontalLimit, horizontalLimit), player.transform.position.y + Screen.height / 100f);
+                        boss.transform.position = new Vector2(Mathf.Sin(angle) * horizontalLimit, player.transform.position.y + BossDist);
+                        angle += BossSpeed;
+                    }
+                    isOnBossScene = true; // para de instanciar os inimigos
+                } else {
+                    SceneManager.LoadScene("GameEnding");
                 }
-                isOnBossScene = true; // para de instanciar os inimigos
+
             }
         }
         else
