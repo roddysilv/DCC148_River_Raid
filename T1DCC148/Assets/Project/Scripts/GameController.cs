@@ -36,6 +36,7 @@ public class GameController : MonoBehaviour
     public float BossDist = 2;
     public float BossSpeed = 0.001f;
     private float angle = 0;
+    private float BossAproach = 5;
 
     // Start is called before the first frame update
     void Start()
@@ -122,8 +123,15 @@ public class GameController : MonoBehaviour
                     if (isOnBossScene)
                     { // movimenta o boss
                       //boss.transform.position = new Vector2(Random.Range(-horizontalLimit, horizontalLimit), player.transform.position.y + Screen.height / 100f);
-                        boss.transform.position = new Vector2(Mathf.Sin(angle) * horizontalLimit, player.transform.position.y + BossDist);
-                        angle += BossSpeed;
+                        if(player.transform.position.y + BossAproach > player.transform.position.y + BossDist){
+                            boss.transform.position = new Vector2(Mathf.Sin(angle) * horizontalLimit, player.transform.position.y + BossAproach);
+                            BossAproach = BossAproach - 0.005f;    
+                            angle += BossSpeed;
+                        }
+                        else{
+                            boss.transform.position = new Vector2(Mathf.Sin(angle) * horizontalLimit, player.transform.position.y + BossDist);
+                            angle += BossSpeed;
+                        }
                     }
                     isOnBossScene = true; // para de instanciar os inimigos
                 } else {

@@ -270,7 +270,7 @@ MonoBehaviour:
   bossIsDead: {fileID: 1196875506}
   fuelAlertSource: {fileID: 1013997311}
   fuelAlertSound: {fileID: 8300000, guid: 22f06e78497f188c7bd6608edcb5ea20, type: 3}
-  BossDist: 2
+  BossDist: 2.5
   BossSpeed: 0.001
 --- !u!82 &230054633
 AudioSource:
