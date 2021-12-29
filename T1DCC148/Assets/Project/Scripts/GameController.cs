@@ -47,6 +47,7 @@ public class GameController : MonoBehaviour
         fuelSpawnTimer = Random.Range(0f, fuelSpawnInterval);
         fuelAlertSource = GetComponent<AudioSource>();
         BossHealthText.text = ""; // inicializa o texto da vida do boss como vazio
+        gameMusic.Play();
     }
 
     // Update is called once per frame
@@ -142,6 +143,7 @@ public class GameController : MonoBehaviour
                     restartTimer -= Time.deltaTime;
                     if (restartTimer <= 0f)
                     {
+                        gameMusic.Stop();
                         SceneManager.LoadScene("GameEnding");
                     }
                 }
