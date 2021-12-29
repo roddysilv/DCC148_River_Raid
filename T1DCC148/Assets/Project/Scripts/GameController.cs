@@ -30,6 +30,7 @@ public class GameController : MonoBehaviour
     //public ObjectPool enemyPool;
     //public ObjectPoolH enemyPoolH;
     public AudioSource gameMusic;
+    public AudioSource bossIsDead;
     public AudioSource fuelAlertSource;
     public AudioClip fuelAlertSound;
     public float BossDist = 2;
@@ -126,7 +127,12 @@ public class GameController : MonoBehaviour
                     }
                     isOnBossScene = true; // para de instanciar os inimigos
                 } else {
-                    SceneManager.LoadScene("GameEnding");
+                    bossIsDead.Play();
+                    restartTimer -= Time.deltaTime;
+                    if (restartTimer <= 0f)
+                    {
+                        SceneManager.LoadScene("GameEnding");
+                    }
                 }
 
             }

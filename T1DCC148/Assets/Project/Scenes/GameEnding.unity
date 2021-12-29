@@ -438,7 +438,7 @@ GameObject:
   - component: {fileID: 1654692418}
   - component: {fileID: 1654692419}
   m_Layer: 0
-  m_Name: Audio Parabens
+  m_Name: Audio You Win
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -468,7 +468,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: fcecd695a58b298a4a2e1653e3c07981, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 496d2173adb3033a8af448e575f68f66, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.7
   m_Pitch: 1
