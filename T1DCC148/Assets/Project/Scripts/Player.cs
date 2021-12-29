@@ -63,9 +63,8 @@ public class Player : MonoBehaviour
                 GameObject bulletInstance = Instantiate(bulletPrefab);
                 bulletInstance.transform.SetParent(transform.parent);
                 bulletInstance.transform.position = transform.position;
-                bulletInstance.GetComponent<Rigidbody2D>().velocity =
-                    new Vector2(0, bulletSpeed);
-                Destroy(bulletInstance, 3f);
+                bulletInstance.GetComponent<Rigidbody2D>().velocity = new Vector2(0, bulletSpeed);
+                Destroy(bulletInstance, .72f);
             }
         }
         else
