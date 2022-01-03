@@ -35,7 +35,7 @@ public class GameController : MonoBehaviour
     public AudioSource fuelAlertSource;
     public AudioClip fuelAlertSound;
     public float BossDist = 2;
-    public float BossSpeed = 0.001f;
+    public float BossSpeed;
     private float angle = 0;
     private float BossAproach = 5;
 
@@ -116,7 +116,7 @@ public class GameController : MonoBehaviour
                 Destroy(player.gameObject);
             }
             //Ativa a cena do boss
-            if (score >= 500)
+            if (score >= 50)
             {
                 bossHealth = boss.GetBossHealth();
                 BossHealthText.text = "Boss: " + ((int)bossHealth * 10);
