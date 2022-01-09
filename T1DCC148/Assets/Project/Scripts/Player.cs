@@ -59,7 +59,7 @@ public class Player : MonoBehaviour
             if (fired == false)
             {
                 fired = true;
-                //shootSound.Play();
+                //shootSound.Play(); // TODO, not implemented yet
                 GameObject bulletInstance = Instantiate(bulletPrefab);
                 bulletInstance.transform.SetParent(transform.parent);
                 bulletInstance.transform.position = transform.position;

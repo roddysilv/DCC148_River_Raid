@@ -8,10 +8,7 @@ public class Boss : MonoBehaviour
     public float speed;
     public float bulletSpeed;
     public float shootingInterval = 6f;
-    /*public delegate void KillHandler();
-    public event KillHandler OnKill;*/
     private int bossHealth = 10;
-
     private float shootingTimer;
     // Start is called before the first frame update
     void Start()
@@ -24,7 +21,7 @@ public class Boss : MonoBehaviour
     void Update()
     {
         shootingTimer -= Time.deltaTime;
-        if (shootingTimer <= 0f)
+        if (shootingTimer <= 0f) // controla os tiros do boss
         {
             shootingTimer = shootingInterval;
             GameObject bulletInstance = Instantiate(bulletPrefab);
@@ -78,19 +75,10 @@ public class Boss : MonoBehaviour
             gameObject.SetActive(false);
             Destroy(otherCollider.gameObject);
         }
-        /*if (OnKill != null)
-        {
-            OnKill();
-        }*/
     }
 
     public int GetBossHealth()
     {
         return bossHealth;
     }
-
-    /*public void SetBossHealth(int health)
-    {
-        bossHealth = health;
-    }*/
 }

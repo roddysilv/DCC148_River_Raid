@@ -29,8 +29,6 @@ public class GameController : MonoBehaviour
     public float fuelSpawnInterval = 9f;
     private float fuelSpawnTimer;
     private float restartTimer = 1f;
-    //public ObjectPool enemyPool;
-    //public ObjectPoolH enemyPoolH;
     public AudioSource gameMusic;
     public AudioSource fuelAlertSource;
     public AudioClip fuelAlertSound;
@@ -53,25 +51,21 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        // loop principal do jogo
         if (player != null)
         {
             enemySpawnTimer -= Time.deltaTime;
             if (enemySpawnTimer <= 0 && !isOnBossScene)
             {
                 enemySpawnTimer = enemySpawnInterval;
-                //GameObject enemyInstance = enemyPool.GetObj ();
                 GameObject enemyInstance = Instantiate(enemyPrefab);
                 enemyInstance.transform.SetParent(transform);
                 enemyInstance.transform.position = new Vector2(Random.Range(-horizontalLimit, horizontalLimit), player.transform.position.y + Screen.height / 100f);
-                //enemyInstance.GetComponent<Enemy>().OnKill += OnEnemyKill;
                 enemyInstance.GetComponent<Enemy>().OnAddScore += OnEnemyDestroy; // atualiza a pontuação do player ao destruir um inimigo
 
-                //GameObject enemyHInstance = enemyPoolH.GetObj ();
                 GameObject enemyHInstance = Instantiate(enemyHPrefab);
                 enemyHInstance.transform.SetParent(transform);
                 enemyHInstance.transform.position = new Vector2(Random.Range(-horizontalLimit, horizontalLimit), player.transform.position.y + Screen.height / 100f);
-                //enemyHInstance.GetComponent<EnemyH>().OnKill += OnEnemyKill;
                 enemyHInstance.GetComponent<EnemyH>().OnAddScore += OnEnemyDestroy; // atualiza a pontuação do player ao destruir um inimigo
 
             }
@@ -116,12 +110,11 @@ public class GameController : MonoBehaviour
                 Destroy(player.gameObject);
             }
             //Ativa a cena do boss
-            if (score >= 50)
+            if (score >= 500)
             {
                 bossHealth = boss.GetBossHealth();
                 BossHealthText.text = "Boss: " + ((int)bossHealth * 10);
                 BossHealthText.color = Color.Lerp(Color.blue, Color.red, bossHealth / 10f);
-                //BossHealthText.GameObject.SetActive(false);
                 if (boss != null)
                 {
                     //gameMusic.Stop();
@@ -150,12 +143,11 @@ public class GameController : MonoBehaviour
 
             }
         }
-        else
+        else // quando o player morre, carrega a cena de game over
         {
             restartTimer -= Time.deltaTime;
             if (restartTimer <= 0f)
             {
-                //SceneManager.LoadScene("Game");
                 SceneManager.LoadScene("GameOver");
             }
         }
@@ -165,7 +157,6 @@ public class GameController : MonoBehaviour
             if (gameCamera.transform.position.y - enemy.transform.position.y > Screen.height / 100f)
             {
                 enemy.gameObject.SetActive(false);
-                //Destroy(enemy.gameObject);
             }
 
         }
@@ -179,12 +170,7 @@ public class GameController : MonoBehaviour
         }
     }
 
-    /*void OnEnemyKill()
-    {
-        //score += 25;
-        scoreText.text = "Score: " + score;
-    }*/
-
+    // Enche o tanque de combustivel ao pegar o combustivel
     void OnFuel()
     {
         fuel = 100f;
